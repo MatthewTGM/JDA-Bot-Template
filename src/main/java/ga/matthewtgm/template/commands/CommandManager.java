@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CommandManager extends ListenerAdapter {
@@ -33,8 +34,9 @@ public class CommandManager extends ListenerAdapter {
         try {
             for (Command command : this.getCommands()) {
                 String msg = event.getMessage().getContentDisplay();
-                String commandName = msg.substring(this.prefix.length(), msg.split(" ")[0].length());
-                String[] args = msg.substring(commandName.length() + 2).split(" ");
+                String commandName = msg.split(" ")[0].replace(this.prefix, "");
+                String[] args = msg.substring(commandName.length() + 1).trim().split(" ");
+                System.out.println("\n" + msg + "\n" + commandName + "\n" + Arrays.asList(args));
                 if(msg.startsWith(this.prefix) && command.getName().equalsIgnoreCase(commandName) && !event.getAuthor().isBot() && !event.isWebhookMessage()) {
                     command.onRan(event, args, MessageUtils.getInstance());
                 }
