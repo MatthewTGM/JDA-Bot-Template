@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group 'ga.matthewtgm.template'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile('net.dv8tion:JDA:4.2.0_168')
+    compile('com.github.TGMDevelopment:JsonTGM:0.2.3')
+}
