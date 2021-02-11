@@ -16,7 +16,7 @@ public class CommandHelp extends Command {
     }
 
     @Override
-    public void onRan(MessageReceivedEvent event, MessageUtils mUtils) {
+    public void onRan(MessageReceivedEvent event, String[] args, MessageUtils mUtils) {
         EmbedBuilder embed = new EmbedBuilder()
                 .setTitle("Help Command")
                 .setColor(new Color(252, 212, 0));

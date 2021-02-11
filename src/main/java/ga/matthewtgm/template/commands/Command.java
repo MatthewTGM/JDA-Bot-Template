@@ -19,7 +19,7 @@ public abstract class Command {
         this.category = category;
     }
 
-    public abstract void onRan(MessageReceivedEvent event, MessageUtils mUtils);
+    public abstract void onRan(MessageReceivedEvent event, String[] args, MessageUtils mUtils);
 
     public String getName() {
         return name;

@@ -15,7 +15,7 @@ public class CommandPing extends Command {
     }
 
     @Override
-    public void onRan(MessageReceivedEvent event, MessageUtils mUtils) {
+    public void onRan(MessageReceivedEvent event, String[] args, MessageUtils mUtils) {
         EmbedBuilder embed = new EmbedBuilder()
                 .setTitle("Ping")
                 .setColor(new Color(252, 212, 0))

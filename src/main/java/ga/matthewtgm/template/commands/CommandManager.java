@@ -33,9 +33,10 @@ public class CommandManager extends ListenerAdapter {
         try {
             for (Command command : this.getCommands()) {
                 String msg = event.getMessage().getContentDisplay();
-                String commandName = msg.substring(this.prefix.length());
-                if(command.getName().equalsIgnoreCase(commandName) && !event.getAuthor().isBot() && !event.isWebhookMessage()) {
-                    command.onRan(event, MessageUtils.getInstance());
+                String commandName = msg.substring(this.prefix.length(), msg.split(" ")[0].length());
+                String[] args = msg.substring(commandName.length() + 2).split(" ");
+                if(msg.startsWith(this.prefix) && command.getName().equalsIgnoreCase(commandName) && !event.getAuthor().isBot() && !event.isWebhookMessage()) {
+                    command.onRan(event, args, MessageUtils.getInstance());
                 }
             }
         } catch (Exception e) {
