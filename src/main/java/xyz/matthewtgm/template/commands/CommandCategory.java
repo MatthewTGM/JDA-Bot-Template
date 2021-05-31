@@ -1,4 +1,4 @@
-package ga.matthewtgm.template.commands;
+package xyz.matthewtgm.template.commands;
 
 public enum CommandCategory {
 

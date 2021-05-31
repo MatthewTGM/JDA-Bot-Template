@@ -1,8 +1,8 @@
-package ga.matthewtgm.template.commands.impl;
+package xyz.matthewtgm.template.commands.impl;
 
-import ga.matthewtgm.template.commands.Command;
-import ga.matthewtgm.template.commands.CommandCategory;
-import ga.matthewtgm.template.utils.MessageUtils;
+import xyz.matthewtgm.template.commands.Command;
+import xyz.matthewtgm.template.commands.CommandCategory;
+import xyz.matthewtgm.template.utils.MessageHelper;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
@@ -15,13 +15,13 @@ public class CommandPing extends Command {
     }
 
     @Override
-    public void onRan(MessageReceivedEvent event, String[] args, MessageUtils mUtils) {
+    public void onRan(MessageReceivedEvent event, String[] args) {
         EmbedBuilder embed = new EmbedBuilder()
                 .setTitle("Ping")
                 .setColor(new Color(252, 212, 0))
                 .addField("Gateway Ping", String.valueOf(event.getJDA().getGatewayPing()), true)
                 .addField("Rest Ping", String.valueOf(event.getJDA().getRestPing().complete()), true);
-        mUtils.sendMessage(event.getTextChannel(), embed.build());
+        MessageHelper.sendMsg(event.getTextChannel(), embed);
     }
 
     @Override

@@ -2,16 +2,23 @@ plugins {
     id 'java'
 }
 
-group 'ga.matthewtgm.template'
+group 'xyz.matthewtgm.template'
 version '1.0'
 
 repositories {
     mavenCentral()
     jcenter()
-    maven { url "https://jitpack.io" }
+    maven {
+        name = "JitPack"
+        url = "https://jitpack.io"
+    }
 }
 
 dependencies {
     compile('net.dv8tion:JDA:4.2.0_168')
-    compile('com.github.TGMDevelopment:JsonTGM:0.2.3')
+    compile('xyz.matthewtgm:JsonTGM:1.2')
+    compile('xyz.matthewtgm:TGMConfig:1.4')
+
+    compile('org.projectlombok:lombok:1.18.16')
+    annotationProcessor('org.projectlombok:lombok:1.18.16')
 }
